@@ -1,0 +1,5 @@
+<%@doctor.appointments.each do |app| %>
+  <%time = app.appointment_datetime.to_formatted_s(:long_ordinal).split(",")%>
+  <%=time[0][0..-3] + "," + time[1][0..5] + "at " + time[1][6..-1]%>
+  <%=link_to app.patient.name, patient_path(app.patient)%>
+<%end%>
